@@ -1,6 +1,20 @@
 ﻿Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'WIP mathy stuff
+        Dim x As Integer
+        Dim y As Integer
+        Dim angle As Integer = 0
+
+
+        Dim topRight As PointF = New PointF((Math.Cos(45 + angle) * 50) + x, (Math.Sin(45 + angle) * 50) + y)
+        Dim bottomRight As PointF = New PointF((Math.Cos(135 + angle) * 50) + x, (Math.Sin(135 + angle) * 50) + y)
+        Dim bottomleft As PointF = New PointF((Math.Cos(225 + angle) * 50) + x, (Math.Sin(225 + angle) * 50) + y)
+        Dim topLeft As PointF = New PointF((Math.Cos(315 + angle) * 50) + x, (Math.Sin(315 + angle) * 50) + y)
+
+        Dim car = {topRight, bottomRight, bottomleft, topLeft}
+
+
 
     End Sub
 
