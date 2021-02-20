@@ -22,16 +22,16 @@
 
 
         '                           new stuff
-        Dim x As Integer = 250
-        Dim y As Integer = 250
+        Dim carX As Integer = 250
+        Dim carY As Integer = 250
         Dim angle As Integer = 50
         Dim width As Integer = 50
-        Dim height As Integer = 50
+        Dim height As Integer = 100
 
-        Dim a As Point = New Point(Math.Sin(45 / 180 / 3.14) * 200, Math.Cos(45 / 180 / 3.14) * 200)
-        Dim b As Point = New Point(Math.Sin(135 / 180 / 3.14) * 200, Math.Cos(135 / 180 / 3.14) * 200)
-        Dim c As Point = New Point(Math.Sin(225 / 180 / 3.14) * 200, Math.Cos(225 / 180 / 3.14) * 200)
-        Dim d As Point = New Point(Math.Sin(315 / 180 / 3.14) * 200, Math.Cos(315 / 180 / 3.14) * 200)
+        Dim a As Point = New Point(Math.Sin((45 + angle) / 180 * 3.14) * width + carX, Math.Cos((45 + angle) / 180 * 3.14) * height + carY)
+        Dim b As Point = New Point(Math.Sin((135 + angle) / 180 * 3.14) * width + carX, Math.Cos((135 + angle) / 180 * 3.14) * height + carY)
+        Dim c As Point = New Point(Math.Sin((225 + angle) / 180 * 3.14) * width + carX, Math.Cos((225 + angle) / 180 * 3.14) * height + carY)
+        Dim d As Point = New Point(Math.Sin((315 + angle) / 180 * 3.14) * width + carX, Math.Cos((315 + angle) / 180 * 3.14) * height + carY)
 
 
 
