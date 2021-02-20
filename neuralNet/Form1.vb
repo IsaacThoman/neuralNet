@@ -24,13 +24,26 @@
         '                           new stuff
         Dim x As Integer = 250
         Dim y As Integer = 250
-        Dim angle As Integer = -45
+        Dim angle As Integer = 50
+        Dim width As Integer = 50
+        Dim height As Integer = 50
+
+        Dim a As Point = New Point(Math.Sin(45 / 180 / 3.14) * 200, Math.Cos(45 / 180 / 3.14) * 200)
+        Dim b As Point = New Point(Math.Sin(135 / 180 / 3.14) * 200, Math.Cos(135 / 180 / 3.14) * 200)
+        Dim c As Point = New Point(Math.Sin(225 / 180 / 3.14) * 200, Math.Cos(225 / 180 / 3.14) * 200)
+        Dim d As Point = New Point(Math.Sin(315 / 180 / 3.14) * 200, Math.Cos(315 / 180 / 3.14) * 200)
 
 
-        Dim topRight As PointF = New PointF((Math.Cos(45 + angle) * 50) + x, (Math.Sin(45 + angle) * 50) + y)
-        Dim bottomRight As PointF = New PointF((Math.Cos(135 + angle) * 50) + x, (Math.Sin(135 + angle) * 50) + y)
-        Dim bottomleft As PointF = New PointF((Math.Cos(225 + angle) * 50) + x, (Math.Sin(225 + angle) * 50) + y)
-        Dim topLeft As PointF = New PointF((Math.Cos(315 + angle) * 50) + x, (Math.Sin(315 + angle) * 50) + y)
+
+        '    Dim bottomRight As PointF = New PointF((Math.Sin((135) / 180 * 3.14) + x), (Math.Cos((135) / 180 * 3.14) + y))
+        '     Dim bottomLeft As PointF = New PointF((Math.Sin((225) / 180 * 3.14) + x), (Math.Cos((225) / 180 * 3.14) + y))
+        '     Dim topLeft As PointF = New PointF((Math.Sin((315) / 180 * 3.14) + x), (Math.Cos((315) / 180 * 3.14) + y))
+
+
+
+        ' Dim bottomRight As PointF = New PointF((Math.Cos(135 + angle) * 50) + x, (Math.Sin(135 + angle) * 50) + y)
+        'Dim bottomleft As PointF = New PointF((Math.Cos(225 + angle) * 50) + x, (Math.Sin(225 + angle) * 50) + y)
+        'Dim topLeft As PointF = New PointF((Math.Cos(315 + angle) * 50) + x, (Math.Sin(315 + angle) * 50) + y)
         'aaagh!!!
 
 
@@ -40,7 +53,7 @@
 
 
 
-        Dim car = {topRight, bottomRight, bottomleft, topLeft}
+        Dim car = {a, b, c, d}
 
 
 
