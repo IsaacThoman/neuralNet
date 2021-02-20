@@ -2,17 +2,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'WIP mathy stuff
-        Dim x As Integer
-        Dim y As Integer
-        Dim angle As Integer = 0
 
-
-        Dim topRight As PointF = New PointF((Math.Cos(45 + angle) * 50) + x, (Math.Sin(45 + angle) * 50) + y)
-        Dim bottomRight As PointF = New PointF((Math.Cos(135 + angle) * 50) + x, (Math.Sin(135 + angle) * 50) + y)
-        Dim bottomleft As PointF = New PointF((Math.Cos(225 + angle) * 50) + x, (Math.Sin(225 + angle) * 50) + y)
-        Dim topLeft As PointF = New PointF((Math.Cos(315 + angle) * 50) + x, (Math.Sin(315 + angle) * 50) + y)
-
-        Dim car = {topRight, bottomRight, bottomleft, topLeft}
 
 
 
@@ -31,17 +21,32 @@
         Dim myGraphics As Graphics
 
 
-
-        Dim rects2 As Rectangle = New Rectangle(10, 10, 10, 10)
-        Dim point1 As PointF = New PointF(10, 10)
-        Dim point2 As PointF = New PointF(150, 150)
-        Dim point3 As PointF = New PointF(10, 150)
-        Dim point4 As PointF = New PointF(50, 60)
-        Dim curve = {point1, point2, point3}
+        '                           new stuff
+        Dim x As Integer = 250
+        Dim y As Integer = 250
+        Dim angle As Integer = -45
 
 
-        surface.DrawLine(penGreen, point1, point2)
-        surface.FillPolygon(solidBrushGreen, curve)
+        Dim topRight As PointF = New PointF((Math.Cos(45 + angle) * 50) + x, (Math.Sin(45 + angle) * 50) + y)
+        Dim bottomRight As PointF = New PointF((Math.Cos(135 + angle) * 50) + x, (Math.Sin(135 + angle) * 50) + y)
+        Dim bottomleft As PointF = New PointF((Math.Cos(225 + angle) * 50) + x, (Math.Sin(225 + angle) * 50) + y)
+        Dim topLeft As PointF = New PointF((Math.Cos(315 + angle) * 50) + x, (Math.Sin(315 + angle) * 50) + y)
+        'aaagh!!!
+
+
+
+
+
+
+
+
+        Dim car = {topRight, bottomRight, bottomleft, topLeft}
+
+
+
+
+
+        surface.FillPolygon(solidBrushGreen, car)
         'surface.FillRectangle(solidBrushGreen, rects2)
 
 
