@@ -1,14 +1,18 @@
 ﻿Public Class Form1
     Dim angle As Integer = 50
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Dim inputAccel As Boolean = False
+    Dim inputLeft As Boolean = False
+    Dim inputRight As Boolean = False
 
+    Dim carX As Integer = 300
+    Dim carY As Integer = 250
+    Dim width As Integer = 50
+    Dim height As Integer = 50
 
+    Dim accelForward As Integer
+    Dim accelRotation As Integer
 
-
-    End Sub
-
-
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    Function render()
 
         Dim surface As Graphics = CreateGraphics()
         Dim Brush1 As Brush
@@ -19,11 +23,7 @@
 
 
         '                           new stuff
-        Dim carX As Integer = 300
-        Dim carY As Integer = 250
-        angle += 1
-        Dim width As Integer = 300
-        Dim height As Integer = 100
+
 
         Dim a As Point = New Point(Math.Sin((45 + angle) / 180 * 3.14) * width + carX, Math.Cos((45 + angle) / 180 * 3.14) * height + carY)
         Dim b As Point = New Point(Math.Sin((135 + angle) / 180 * 3.14) * width + carX, Math.Cos((135 + angle) / 180 * 3.14) * height + carY)
@@ -46,9 +46,63 @@
         'surface.FillRectangle(solidBrushGreen, rects2)
 
 
-        myGraphics = Graphics.FromHwnd(ActiveForm().Handle)
+        '   myGraphics = Graphics.FromHwnd(ActiveForm().Handle)
+        ' Not sure what the above line did, but it seemed to break things so I disabled it
+
+    End Function
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
 
 
+
+    End Sub
+
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        ' angle += 1
+        If inputLeft Then
+            accelRotation += 1
+        End If
+        If inputRight Then
+            accelRotation += -1
+        End If
+        angle += accelRotation
+
+        render()
+
+
+    End Sub
+
+    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+        If e.Control Or e.Shift Or e.Alt Then
+
+        End If
+
+        Label1.Text = e.KeyValue
+
+        If e.KeyValue = 87 Then
+            inputAccel = True
+        End If
+        If e.KeyValue = 65 Then
+            inputLeft = True
+
+        End If
+        If e.KeyValue = 68 Then
+            inputRight = True
+        End If
+
+    End Sub
+
+    Private Sub Form1_KeyUp(sender As Object, e As KeyEventArgs) Handles Me.KeyUp
+        If e.KeyValue = 87 Then
+            inputAccel = False
+        End If
+        If e.KeyValue = 65 Then
+            inputLeft = False
+
+        End If
+        If e.KeyValue = 68 Then
+            inputRight = False
+        End If
     End Sub
 End Class

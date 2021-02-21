@@ -23,36 +23,36 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(90, 109)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Timer1
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 20
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(90, 175)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Label1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(749, 558)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Label1)
         Me.Name = "Form1"
         Me.Text = "funny car"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Button1 As Button
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents Label1 As Label
 End Class
