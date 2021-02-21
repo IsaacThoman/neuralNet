@@ -10,7 +10,10 @@
     Dim height As Integer = 50
 
     Dim accelForward As Integer
-    Dim accelRotation As Integer
+    Dim accelRotation As Decimal
+
+    Dim speedLimit As Integer = 10
+    Dim speedLimitRotation As Integer = 10
 
     Function render()
 
@@ -62,11 +65,44 @@
         ' angle += 1
         If inputLeft Then
             accelRotation += 1
+
         End If
         If inputRight Then
             accelRotation += -1
         End If
+
+        If accelRotation > 0 Then
+            accelRotation += -0.5
+        ElseIf accelRotation < 0 Then
+            accelRotation += 0.5
+
+        End If
+
         angle += accelRotation
+
+
+        If inputAccel Then
+            accelForward += 1
+        ElseIf accelForward > 0 Then
+            accelForward += -1
+        End If
+
+        If accelRotation > speedLimitRotation Then
+            accelRotation = speedLimitRotation
+        End If
+        If accelRotation < 0 - speedLimitRotation Then
+            accelRotation = 0 - speedLimitRotation
+        End If
+        If accelForward > speedLimit Then
+            accelForward = speedLimit
+        End If
+        If accelForward < 0 - speedLimit Then
+            accelForward = 0 - speedLimit
+        End If
+
+        carX += Math.Sin(angle / 180 * 3.14) * accelForward
+        carY += Math.Cos(angle / 180 * 3.14) * accelForward
+
 
         render()
 
