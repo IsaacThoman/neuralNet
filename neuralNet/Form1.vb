@@ -9,11 +9,13 @@
     Dim width As Integer = 50
     Dim height As Integer = 50
 
-    Dim accelForward As Integer
+    Dim accelForward As Decimal
     Dim accelRotation As Decimal
 
-    Dim speedLimit As Integer = 10
-    Dim speedLimitRotation As Integer = 10
+    Dim speedLimit As Integer = 20
+    Dim speedLimitRotation As Integer = 5
+    Dim friction As Decimal = 1
+    ' defaults are 10,10, and 1
 
     Function render()
 
@@ -26,26 +28,28 @@
 
 
         '                           new stuff
-
+        Dim carCenter As Point = New Point(carX, carY)
 
         Dim a As Point = New Point(Math.Sin((45 + angle) / 180 * 3.14) * width + carX, Math.Cos((45 + angle) / 180 * 3.14) * height + carY)
         Dim b As Point = New Point(Math.Sin((135 + angle) / 180 * 3.14) * width + carX, Math.Cos((135 + angle) / 180 * 3.14) * height + carY)
         Dim c As Point = New Point(Math.Sin((225 + angle) / 180 * 3.14) * width + carX, Math.Cos((225 + angle) / 180 * 3.14) * height + carY)
         Dim d As Point = New Point(Math.Sin((315 + angle) / 180 * 3.14) * width + carX, Math.Cos((315 + angle) / 180 * 3.14) * height + carY)
 
-
-
+        Dim ray1 As Point = New Point(Math.Sin((45 + angle) / 180 * 3.14) * (width + 50) + carX, Math.Cos((45 + angle) / 180 * 3.14) * (height + 50) + carY)
+        Dim ray2 As Point = New Point(Math.Sin((315 + angle) / 180 * 3.14) * (width + 50) + carX, Math.Cos((315 + angle) / 180 * 3.14) * (height + 50) + carY)
 
 
 
 
         Dim car = {a, b, c, d}
-
+        Dim testRay = {carCenter, ray1}
 
 
 
 
         surface.FillPolygon(solidBrushGreen, car)
+        surface.DrawLine(penGreen, carCenter, ray1)
+        surface.DrawLine(penGreen, carCenter, ray2)
         'surface.FillRectangle(solidBrushGreen, rects2)
 
 
@@ -72,9 +76,9 @@
         End If
 
         If accelRotation > 0 Then
-            accelRotation += -0.5
+            accelRotation += 0 - friction / 2
         ElseIf accelRotation < 0 Then
-            accelRotation += 0.5
+            accelRotation += friction / 2
 
         End If
 
@@ -84,7 +88,7 @@
         If inputAccel Then
             accelForward += 1
         ElseIf accelForward > 0 Then
-            accelForward += -1
+            accelForward += 0 - friction
         End If
 
         If accelRotation > speedLimitRotation Then
@@ -102,6 +106,11 @@
 
         carX += Math.Sin(angle / 180 * 3.14) * accelForward
         carY += Math.Cos(angle / 180 * 3.14) * accelForward
+
+
+        Dim mouseX = MousePosition.X - Me.Left
+        Dim mouseY = MousePosition.Y - Me.Top
+
 
 
         render()
@@ -140,5 +149,9 @@
         If e.KeyValue = 68 Then
             inputRight = False
         End If
+    End Sub
+
+    Private Sub Form1_MouseClick(sender As Object, e As MouseEventArgs) Handles Me.MouseClick
+
     End Sub
 End Class
