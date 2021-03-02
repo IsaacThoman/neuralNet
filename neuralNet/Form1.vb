@@ -16,6 +16,7 @@
     Dim speedLimit As Integer = 40
     Dim speedLimitRotation As Integer = 5
     Dim friction As Decimal = 0.8
+    Dim intersection As String = "no!!"
     ' defaults are 10,10, and 1
 
 
@@ -54,6 +55,8 @@
         'surface.FillRectangle(solidBrushGreen, rects2)
 
 
+
+
         '   myGraphics = Graphics.FromHwnd(ActiveForm().Handle)
         ' Not sure what the above line did, but it seemed to break things so I disabled it
 
@@ -84,7 +87,7 @@
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
-        Label1.Text = "X: " & carX & ", Y: " & carY & vbNewLine & "Angle: " & angle & vbNewLine & "ForwardAccel: " & accelForward & vbNewLine & "RotationAccel: " & accelRotation & vbNewLine
+        Label1.Text = "X: " & carX & ", Y: " & carY & vbNewLine & "Angle: " & angle & vbNewLine & "ForwardAccel: " & accelForward & vbNewLine & "RotationAccel: " & accelRotation & vbNewLine & intersection
 
 
         ' angle += 1
